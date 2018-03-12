@@ -1,0 +1,87 @@
+body  {
+  margin: 0;
+}
+
+.container  {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+#about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lavender;
+  width: 100%;
+  height: 600px;
+}
+
+#work {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightpink;
+  width: 100%;
+}
+
+#contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lavender;
+  width: 100%;
+  height: 600px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.background {
+  background-color: #490D40;
+  background: url(https://i.imgur.com/63drsVS.jpg) no-repeat center center;
+  background-size: cover;
+  width: 100%;
+  height: 650px;
+}
+
+img.portfolio {
+  justify-content: center;
+  border: solid 5px #FFFFFF;
+  margin: 15px;
+}
+
+#navbar {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  overflow: hidden;
+  background-color: lightpink;
+}
+
+#navbar a {
+  color: #F2F2F2;
+  padding: 14px;
+  text-decoration: none;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}
