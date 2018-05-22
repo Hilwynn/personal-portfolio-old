@@ -283,9 +283,10 @@ ul {
     /* Firefox 3.5 - 3.6 */
     box-shadow: 0 1px 50px #d4b4de;
     /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+    height: 40px;
   }
   #navbar a {
-    font-family: Nixie One;
+    font-family: Roboto Mono;
     color: #e7bdda;
     padding: 14px;
     text-decoration: none;
