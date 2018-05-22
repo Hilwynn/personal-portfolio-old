@@ -1,14 +1,38 @@
 body  {
-  background-color: lavender;
-  font-family: Helvetica;
+  background: #9796f0;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #fbc7d4, #9796f0);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #fbc7d4, #9796f0);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  font-family: Roboto Mono;
+  color: #faf5fb;
   margin: 0;
+}
+
+h1, h2, h3 {
+  font-family: Nixie One;
+  color: #faf5fb;
+}
+
+h1 {
+  font-size: 42px;
+}
+
+h2 {
+  font-size: 36px;
+}
+
+h3 {
+  font-size: 28px;
+  margin-bottom: 0;
 }
 
 .container  {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  flex: 1 0 auto;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -19,35 +43,50 @@ body  {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   width: 100%;
-  height: 600px;
+  min-height: 100vh;
 }
 
-#work {
+#portfolio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 75%;
+  min-height: 100vh;
+  padding: 50px 0 50px 0;
+}
+
+.portfolio {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: lightpink;
-  padding: 50px 0 50px 0;
-  width: 100%;
+  flex-wrap: wrap;
 }
 
 #contact {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 50%;
-  height: 600px;
+  min-height: 97vh;
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .contact-form {
-  border-left: 1px solid #fff;
+  border-left: 1px solid #faf5fb;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 50px 0 50px 0;
-  width: 400px;
+  width: 100%;
   flex: 1.5;
 }
 .social-media {
@@ -63,30 +102,47 @@ body  {
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+  font-size: 12px;
+  height: 3vh;
 }
 
+/*
 .background {
   background-color: #490D40;
-  background: url(https://i.imgur.com/63drsVS.jpg) no-repeat center center;
+  background: url(background-image.jpg) no-repeat center center;
   background-size: cover;
   width: 100%;
   height: 650px;
 }
+*/
 
 button {
-  background-color: #efedfd;
+  background-color: #faf5fb;
   border: none;
   border-radius: 50%;
-  color: #d7d4fa;
-  cursor: pointer;
+  color: #c5c0f8;
   height: 50px;
   width: 50px;
 }
 
-img.portfolio {
-  display: flex;
-  justify-content: center;
-  border: solid 5px #FFFFFF;
+button:focus {
+  background-color: #c5c0f8;
+  color: #faf5fb;
+  outline: none;
+}
+
+button:hover {
+  background-color: #c5c0f8;
+  color: #faf5fb;
+  cursor: pointer;
+}
+
+.fa {
+  tabindex: -1;
+}
+
+.portfolio-thumbnail {
+  border: solid 5px #faf5fb;;
   margin: 15px;
 }
 
@@ -97,7 +153,8 @@ form {
 input[type=text] {
     background: transparent;
     border: 0;
-    border-bottom: 1px solid #f6bac2;;
+    border-bottom: 1px solid #faf5fb;
+    color: #faf5fb;
     font-family: Roboto Mono;
     margin-bottom: 20px;
     padding: 5px 7px;
@@ -105,8 +162,9 @@ input[type=text] {
 }
 
 textarea {
-  border: 1px solid #f6bac2;
-
+  background-color: transparent;
+  border: 1px solid #faf5fb;
+  color: #faf5fb;
   width: 100%;
   height: 75px;
   margin-top: 5px;
@@ -114,20 +172,17 @@ textarea {
   resize: none;
 }
 
-textarea:focus {
+textarea:focus, input[type=text]:focus,
+input[type=submit]:focus, input[type=reset]:focus,
+input[type=submit]:hover, input[type=reset]:hover {
   background-color: rgba(252, 234, 237, 0.5);
   outline: none;
 }
 
-input[type=text]:focus {
-  background-color: rgba(252, 234, 237, 0.5);
-  outline: none;
-}
-
-input[type=submit] {
-  background-color: #b9e1dc;
-  border: none;
-  color: #fbfbfb;
+input[type=submit], input[type=reset] {
+  background-color: #e3bbda;
+  border: 1px solid #faf5fb;
+  color: #faf5fb;
   cursor: pointer;
   font-family: Roboto Mono;
   font-size: 14px;
@@ -137,27 +192,17 @@ input[type=submit] {
   text-align: center;
 }
 
-input[type=submit]:focus {
-  background-color: rgba(185, 225, 220, 0.7);
-  outline: none;
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #faf5fb;
+    opacity: 1; /* Firefox */
 }
 
-input[type=reset] {
-  background-color: #b9e1dc;
-  border: none;
-  color: #fbfbfb;
-  cursor: pointer;
-  font-family: Roboto Mono;
-  font-size: 14px;
-  height: 32px;
-  margin: 0 5px 0 0;
-  padding: 0px 16px;
-  text-align: center;
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #faf5fb;
 }
 
-input[type=submit,reset]:focus {
-  background-color: rgba(185, 225, 220, 0.7);
-  outline: none;
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #faf5fb;
 }
 
 li {
@@ -175,11 +220,13 @@ ul {
   height: 50px;
   width: 100%;
   overflow: hidden;
-  background-color: lightpink;
+  background-color: transparent;
 }
 
 #navbar a {
-  color: #F2F2F2;
+  font-family: Roboto Mono;
+  font-size: 12px;
+  color: #faf5fb;
   padding: 14px;
   text-decoration: none;
 }
@@ -195,8 +242,53 @@ ul {
   padding-top: 60px;
 }
 
+/* Resposive design */
+
 @media screen and (max-width:990px) {
-  #contact { flex-wrap: wrap; width: 100%; }
-  .contact-form { flex-basis: 100%; }
-  #work { flex-wrap: wrap; }
+  body {
+    background: #9796f0;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #9796f0, #fbc7d4);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #9796f0, #fbc7d4);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-attachment: fixed;
+  }
+  #contact, .contact {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .portfolio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  .contact-form {
+    flex-basis: 100%;
+    padding: 30px 0 20px 0;
+    border: none;
+    order: 1;
+  }
+  .social-media {
+    order: 2;
+  }
+  #navbar {
+    background-color: #faf5fb;
+    -webkit-box-shadow: 0 1px 50px #d4b4de;
+    /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow: 0 1px 50px #d4b4de;
+    /* Firefox 3.5 - 3.6 */
+    box-shadow: 0 1px 50px #d4b4de;
+    /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
+  }
+  #navbar a {
+    font-family: Nixie One;
+    color: #e7bdda;
+    padding: 14px;
+    text-decoration: none;
+  }
+
 }
